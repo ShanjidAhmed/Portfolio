@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shanjid Ahmed - BI Developer & Data Analyst Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0ea5e9;
+            --primary-dark: #0284c7;
+            --secondary: #06b6d4;
+            --accent: #8b5cf6;
+            --dark: #f8fafc;
+            --dark-light: #ffffff;
+            --gray: #64748b;
+            --light: #1e293b;
+            --white: #0f172a;
+            --gradient: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 100%);
+            --border: #e2e8f0;
+            --surface: #f1f5f9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            box-shadow: 0 1px 20px rgba(0,0,0,0.06);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #334155;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f0f9ff 0%, #faf5ff 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -100px;
+            left: -100px;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            animation: slideInLeft 1s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--gradient);
+            color: #ffffff;
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            animation: slideInLeft 1s ease-out 0.2s both;
+            max-width: 100%;
+            white-space: nowrap;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            color: #0f172a;
+            animation: slideInLeft 1s ease-out 0.3s both;
+        }
+
+        .gradient-text {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            animation: slideInLeft 1s ease-out 0.4s both;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #475569;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            animation: slideInLeft 1s ease-out 0.5s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-bottom: 2rem;
+            animation: slideInLeft 1s ease-out 0.6s both;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+
+        .stat-label {
+            color: #475569;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--gradient);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slideInLeft 1s ease-out 0.7s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(14, 165, 233, 0.3);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: slideInRight 1s ease-out 0.5s both;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        .image-container::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 50%;
+            z-index: -1;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(1.05); }
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 50%;
+            display: block;
+            box-shadow: 0 20px 60px rgba(14, 165, 233, 0.2);
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #0f172a;
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About My Work Section */
+        .about-work {
+            background: #ffffff;
+            padding: 4rem 0;
+        }
+
+        .work-intro {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .work-intro h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #0f172a;
+        }
+
+        .work-intro p {
+            font-size: 1.1rem;
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .work-features-wrapper {
+            margin-top: 2rem;
+        }
+
+        .work-features {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.75rem;
+        }
+
+        .work-feature {
+            text-align: center;
+            padding: 0.75rem 0.75rem;
+            background: linear-gradient(135deg, rgba(14,165,233,0.08) 0%, rgba(139,92,246,0.08) 100%);
+            border-radius: 50px;
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            color: #0f172a;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .work-feature::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* About Section */
+        .about {
+            background: #f8fafc;
+        }
+
+        .about-content {
+            display: block;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: #475569;
+            line-height: 1.8;
+        }
+
+        .about-text p {
+            margin-bottom: 0;
+        }
+
+        .about-text strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(14,165,233,0.1);
+        }
+
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #0f172a;
+        }
+
+        .skill-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            background: rgba(14, 165, 233, 0.1);
+            color: var(--primary);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Experience Section */
+        .experience {
+            background: #ffffff;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary) 0%, var(--accent) 100%);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 3rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3.5rem;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 3px solid #ffffff;
+            box-shadow: 0 0 0 4px var(--primary-dark);
+        }
+
+        .timeline-content {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        }
+
+        .timeline-date {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+        }
+
+        .timeline-content h4 {
+            color: var(--gray);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .timeline-content li {
+            color: var(--gray);
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: #ffffff;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(14,165,233,0.12);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #0f172a;
+        }
+
+        .project-content p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .project-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .project-link:hover {
+            gap: 1rem;
+        }
+
+        /* Certifications Section */
+        .certifications {
+            background: #f8fafc;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cert-item {
+            background: #ffffff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 3px solid var(--primary);
+            border-top: 1px solid #e2e8f0;
+            border-right: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .cert-item:hover {
+            transform: translateX(10px);
+        }
+
+        .cert-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+        }
+
+        .cert-item h4 a {
+            color: #0f172a;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .cert-item h4 a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .cert-item p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .cert-year {
+            color: var(--primary);
+            font-weight: 600;
+            margin-top: 0.5rem;
+            display: block;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: #ffffff;
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-icon img {
+            width: 24px;
+            height: 24px;
+            filter: brightness(0) invert(1);
+        }
+
+        .contact-details h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: #0f172a;
+        }
+
+        .contact-details a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .contact-details a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-details p {
+            color: var(--gray);
+            margin: 0;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            background: #f1f5f9;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s ease, background 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .social-link img {
+            width: 30px;
+            height: 30px;
+            filter: brightness(0) saturate(100%) invert(35%) sepia(10%) saturate(500%) hue-rotate(180deg);
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+            background: var(--gradient);
+            border-color: transparent;
+        }
+
+        .social-link:hover img {
+            filter: brightness(0) invert(1);
+        }
+
+        /* Footer */
+        footer {
+            background: #f1f5f9;
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        footer p {
+            color: var(--gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .work-features {
+                flex-wrap: wrap;
+            }
+
+            .skills-grid,
+            .projects-grid,
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Shanjid Ahmed</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="badge">MICROSOFT CERTIFIED</span>
+                <h1>Hello, I'm<br><span class="gradient-text">Shanjid Ahmed</span></h1>
+                <p class="hero-subtitle">Business Intelligence Developer & Data Analyst</p>
+                <p>Detail-oriented data analyst with a thirst for innovation. I transform complex data into actionable insights that drive business decisions, specializing in Power BI, SQL, and Azure analytics.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number" id="yearsExp"></span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">6+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">8+</span>
+                        <span class="stat-label">Certifications</span>
+                    </div>
+                </div>
+
+                <a href="#contact" class="cta-button">Get In Touch</a>
+            </div>
+
+            <div class="hero-image">
+                <div class="image-container">
+                    <!-- Profile Photo -->
+                    <img src="profile-photo-optimized.jpg" alt="Shanjid Ahmed">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About My Work Section -->
+    <section class="about-work">
+        <div class="container">
+            <div class="work-intro">
+                <h2>About My Work</h2>
+                <p>I'm passionate about helping businesses make data-driven decisions through powerful analytics and visualization. I specialize in transforming complex data into actionable insights that drive business growth and operational efficiency.</p>
+                
+                <div class="work-features-wrapper">
+                <div class="work-features">
+                    <div class="work-feature">Power BI dashboard development</div>
+                    <div class="work-feature">Data analysis and insights</div>
+                    <div class="work-feature">Business intelligence solutions</div>
+                    <div class="work-feature">Data warehousing and ETL</div>
+                    <div class="work-feature">Consultation on analytics strategy</div>
+                </div>
+                </div>
+                
+                <p style="margin-top: 2rem;">I'm here to help transform your data into actionable insights. Feel free to reach out, and let's discuss how we can work together to achieve your goals.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">About Me</span>
+                <h2 class="section-title">Turning Data Into Decisions</h2>
+                <p class="section-subtitle">Passionate about leveraging data analytics to solve complex business problems</p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I am a results-driven <strong>Business Intelligence Developer</strong> at <strong>American & Efird Bangladesh Limited</strong>, where I leverage data analytics and visualization to drive strategic decision-making. Through advanced analysis and actionable insights, I have contributed to a <strong>17% increase in sales</strong>, demonstrating the tangible business impact of data-driven strategies.
+                    </p>
+
+                    <p>
+                        With a <strong>Bachelor’s degree in Computer Science and Engineering</strong> from <strong>Pabna University of Science and Technology</strong> and a <strong>Postgraduate Diploma in Data Science & Business Analytics</strong>, I combine strong technical expertise with a deep understanding of business operations.
+                    </p>
+
+                    <p>
+                        My core expertise includes developing end-to-end BI solutions using <strong>Power BI, DAX, Power Query, SQL, Python, Data Analysis, Data Visualization and Azure</strong>. I specialize in designing robust data models, building scalable data warehousing solutions, and creating interactive dashboards that transform complex datasets into clear, meaningful insights for stakeholders at all levels.
+                    </p>
+
+                    <p>
+                        Previously, at <strong>Apsis Solutions Ltd</strong> and <strong>Daraz Bangladesh (Alibaba Group)</strong>, I gained extensive experience in dashboard development, advanced SQL querying, automated reporting systems, and cross-functional collaboration. I thrive in environments where data meets strategy, and I am passionate about continuous learning and staying aligned with the evolving landscape of data analytics and business intelligence.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Expertise</span>
+                <h2 class="section-title">Skills & Technologies</h2>
+                <p class="section-subtitle">Tools and technologies I use to transform data into insights</p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">📊</div>
+                    <h3>Business Intelligence</h3>
+                    <p>Expert in creating interactive dashboards and reports that drive business decisions.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">DAX</span>
+                        <span class="skill-tag">Data Modeling</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🗄️</div>
+                    <h3>Data Management</h3>
+                    <p>Proficient in database design, SQL optimization, and data warehousing solutions.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Data Warehouse</span>
+                        <span class="skill-tag">ETL</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🐍</div>
+                    <h3>Programming & Analysis</h3>
+                    <p>Strong programming skills for data analysis, automation, and machine learning.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">NumPy</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">☁️</div>
+                    <h3>Cloud & DevOps</h3>
+                    <p>Experience with cloud platforms and orchestration tools for scalable solutions.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Azure</span>
+                        <span class="skill-tag">Airflow</span>
+                        <span class="skill-tag">AWS</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">📈</div>
+                    <h3>Data Visualization</h3>
+                    <p>Creating compelling visual stories that make complex data accessible to all stakeholders.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Visualization</span>
+                        <span class="skill-tag">Dashboards</span>
+                        <span class="skill-tag">Reporting</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">💼</div>
+                    <h3>Business Acumen</h3>
+                    <p>Strong understanding of business processes and translating requirements into solutions.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Analytics</span>
+                        <span class="skill-tag">Communication</span>
+                        <span class="skill-tag">Problem Solving</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Career</span>
+                <h2 class="section-title">Work Experience</h2>
+                <p class="section-subtitle">My professional journey in data analytics and business intelligence</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">October 2023 - Present</span>
+                        <h3>Business Intelligence (BI) Developer</h3>
+                        <h4>American & Efird Bangladesh Limited</h4>
+                        <ul>
+                            <li>Interpret data, analyze results and provide ongoing reports.</li>
+                            <li>Develop and supply strategic reporting, including: quarterly summaries, monthly trends, week-over-week analysis, and daily reporting.</li>
+                            <li>Develop trend reporting on data inaccuracies to help operations leadership in seeking to understand root causes.</li>
+                            <li>Develop and implement databases, data collection systems, data analytics and other strategies that optimize operational effectiveness and efficiency.</li>
+                            <li>Design, develop and deploy Reports dashboards with BI tools (Microsoft Power BI).</li>
+                            <li>Ability to write complex SQL queries, and perform data analysis.</li>
+                            <li>Maintain data warehousing solutions.</li>
+                            <li>Maintain close relationships with stakeholders to extract requirements and understand the business needs.</li>
+                            <li>Uses data patterns and trends to root cause operational gaps and inefficiency, and develop solutions in collaboration with teams.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">October 2022 - September 2023</span>
+                        <h3>Associate Data Analyst</h3>
+                        <h4>Apsis Solutions Ltd</h4>
+                        <ul>
+                            <li>Collect and analyze business data to identify key insights, trends, and patterns providing actionable recommendations to drive business decisions.</li>
+                            <li>Stay up-to-date with industry trends, best practices, and technological advancements, actively contributing to the enhancement of knowledge.</li>
+                            <li>Support designing, developing, and implementing business intelligence solutions using Power BI, Azure, and Airflow.</li>
+                            <li>Collaborate with teams and stakeholders to understand data requirements and objectives for data-driven insights and forecasting needs.</li>
+                            <li>Design and map data models to shift raw data into meaningful insights.</li>
+                            <li>Utilize DAX in Power BI to build interactive and visually appealing dashboards and reports.</li>
+                            <li>Continuously monitor and evaluate the effectiveness of data visualizations, making improvements as necessary to enhance their impact.</li>
+                            <li>Translate complex data sets into easy-to-understand visualizations that drive business decisions.</li>
+                            <li>Transform business requirements into technical publications using Python.</li>
+                            <li>Take care of data warehouse development.</li>
+                            <li>Make essential technical and strategic changes to improvise present business intelligence systems.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">May 2022 - September 2022</span>
+                        <h3>Data Analyst Intern</h3>
+                        <h4>Data Works (DataCrafters.io)</h4>
+                        <ul>
+                            <li>Worked with partners to understand data needs and translate into actionable insights</li>
+                            <li>Developed and maintained data pipelines and data models</li>
+                            <li>Assisted with data validation and quality control</li>
+                            <li>Created and deployed Power BI scripts for deep analysis</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">February 2021 - May 2022</span>
+                        <h3>Junior Executive - IT | Intern - IT</h3>
+                        <h4>Daraz Bangladesh Ltd (Alibaba Group)</h4>
+                        <ul>
+                            <li>Provided IT support and managed technical operations</li>
+                            <li>Gained experience in e-commerce technology infrastructure</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Portfolio</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Data analysis and visualization projects showcasing my skills</p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">📊</div>
+                    <div class="project-content">
+                        <h3>Professional BI Projects</h3>
+                        <p>Developed comprehensive BI solutions at American & Efird Bangladesh and Apsis Solutions, creating Power BI dashboards that analyze sales, orders, and product data. Increased sales by 17% through data-driven insights.</p>
+                        <a href="https://github.com/ShanjidAhmed" target="_blank" class="project-link">View Portfolio →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">🚴</div>
+                    <div class="project-content">
+                        <h3>AdventureWorks Sales Analysis</h3>
+                        <p>Interactive Power BI dashboard analyzing sales performance, customer behavior, and product trends using AdventureWorks dataset. Features advanced DAX calculations and dynamic visualizations.</p>
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiYzhjMGFiZmEtOTE2ZS00YmU2LWJjZTktYjEzYzg3M2YxNTU3IiwidCI6ImMxYmRhMWVmLWY0N2YtNGQ3Zi05OTQ4LTYzMjU0M2M4NWVkOSIsImMiOjEwfQ%3D%3D" target="_blank" class="project-link">Dashboard Link →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">🚗</div>
+                    <div class="project-content">
+                        <h3>Uber Trip Analysis Dashboard</h3>
+                        <p>Comprehensive Power BI dashboard analyzing Uber trip data including ride patterns, peak hours, geographical distribution, and revenue insights with interactive filters.</p>
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiYmMzOTJlZDEtNDA0ZS00NjU5LWFjMzgtYjIyZWI1NjZlZGNhIiwidCI6ImMxYmRhMWVmLWY0N2YtNGQ3Zi05OTQ4LTYzMjU0M2M4NWVkOSIsImMiOjEwfQ%3D%3D" target="_blank" class="project-link">Dashboard Link →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">🐍</div>
+                    <div class="project-content">
+                        <h3>Sales Analysis in Python</h3>
+                        <p>Python-based sales analysis using Pandas, Matplotlib, and Seaborn for data cleaning, exploratory data analysis, and creating insightful visualizations.</p>
+                        <a href="https://github.com/ShanjidAhmed/Sales_Analysis_Python" target="_blank" class="project-link">GitHub Link →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">🏠</div>
+                    <div class="project-content">
+                        <h3>House Price Prediction</h3>
+                        <p>Machine learning project using Linear Regression to predict house prices based on various features. Includes data preprocessing, model training, and evaluation.</p>
+                        <a href="https://github.com/ShanjidAhmed/House-Price-Prediction-Python" target="_blank" class="project-link">GitHub Link →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">💰</div>
+                    <div class="project-content">
+                        <h3>Financial Analysis Projects</h3>
+                        <p>Cost-Volume-Profit (CVP) Analysis developed in Python for business financial decision-making.</p>
+                        <a href="https://github.com/ShanjidAhmed/CVP_Calculation_Python" target="_blank" class="project-link">GitHub Link →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications" id="certifications">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Credentials</span>
+                <h2 class="section-title">Certifications</h2>
+                <p class="section-subtitle">Professional certifications and continuous learning achievements</p>
+            </div>
+
+            <div class="cert-grid">
+                <div class="cert-item">
+                    <h4><a href="https://learn.microsoft.com/en-us/users/shanjidahmed-7334/credentials/6579ea66271a322d" target="_blank">Microsoft Certified Fabric Analytics Engineer Associate</a></h4>
+                    <p>Microsoft</p>
+                    <span class="cert-year">2024</span>
+                </div>
+
+                <div class="cert-item">
+                    <h4><a href="https://drive.google.com/file/d/1LZi-s5T_G2PQKw8269LJEg-DfPOoVQVj/view?pli=1" target="_blank">Microsoft Certified Power BI Data Analyst Associate</a></h4>
+                    <p>Microsoft</p>
+                    <span class="cert-year">2022</span>
+                </div>
+
+                <div class="cert-item">
+                    <h4><a href="https://drive.google.com/file/d/18LiLKSqhdONqnYR0kmXeqnNULsiGxTbm/view" target="_blank">Microsoft Certified Azure Data Fundamentals</a></h4>
+                    <p>Microsoft</p>
+                    <span class="cert-year">2023</span>
+                </div>
+
+                <div class="cert-item">
+                    <h4><a href="https://drive.google.com/file/d/10vA4XEMn7JydsIWJeAKpVGvL5bI6eRbl/view" target="_blank">Apache Airflow: Complete Hands-On Beginner to Advanced</a></h4>
+                    <p>Udemy</p>
+                    <span class="cert-year">2023</span>
+                </div>
+
+                <div class="cert-item">
+                    <h4><a href="https://drive.google.com/file/d/1wv2Jm3uP9LWDaSucAjIWl65xceg7b-4B/view" target="_blank">Data Modeling for Power BI</a></h4>
+                    <p>SQLBI</p>
+                    <span class="cert-year">2022</span>
+                </div>
+
+                <div class="cert-item">
+                    <h4><a href="https://drive.google.com/file/d/1vr3rudWYEMtQKxm5SXKv3l3xtO-vcBR2/view" target="_blank">Power BI Dashboard Design Course</a></h4>
+                    <p>SQLBI</p>
+                    <span class="cert-year">2022</span>
+                </div>
+
+                <div class="cert-item">
+                    <h4><a href="https://drive.google.com/file/d/1wHMKm4lPEtqAhmInJ4beGE7W2uFNMJLt/view" target="_blank">Mastering DAX</a></h4>
+                    <p>SQLBI</p>
+                    <span class="cert-year">2022</span>
+                </div>
+
+                <div class="cert-item">
+                    <h4><a href="https://drive.google.com/file/d/1x95OOPHHk4s8rmg73uJZxr7TVhskoYsW/view" target="_blank">Intermediate SQL</a></h4>
+                    <p>DataCamp</p>
+                    <span class="cert-year">2022</span>
+                </div>
+
+                <div class="cert-item">
+                    <h4><a href="https://www.datacamp.com/courses/data-modeling-in-power-bi" target="_blank">Data Modeling in Power BI</a></h4>
+                    <p>DataCamp</p>
+                    <span class="cert-year">2022</span>
+                </div>
+
+                <div class="cert-item">
+                    <h4><a href="https://www.coursera.org/specializations/aws-fundamentals" target="_blank">AWS Fundamentals</a></h4>
+                    <p>Coursera</p>
+                    <span class="cert-year">2021</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">Let's Connect</h2>
+                <p class="section-subtitle">Interested in collaboration or have a project in mind? Let's talk!</p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <a href="mailto:sjahmed116@gmail.com">sjahmed116@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <a href="tel:+8801676845705">+880 1676 845705</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>Dhaka, Bangladesh</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/shanjid-ahmed/" class="social-link" target="_blank" title="LinkedIn">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn">
+                    </a>
+                    <a href="https://github.com/ShanjidAhmed" class="social-link" target="_blank" title="GitHub">
+                                       <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="footerYear"></span> Shanjid Ahmed. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dynamic years of experience from 2021
+        const startYear = 2021;
+        const currentYear = new Date().getFullYear();
+        const years = currentYear - startYear;
+        document.getElementById('yearsExp').textContent = years + '+';
+    </script>
